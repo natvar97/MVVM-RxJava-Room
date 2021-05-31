@@ -46,7 +46,7 @@ class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.NewsRecycle
         holder.bind(news[position])
 
         holder.itemView.setOnClickListener {
-            it.context.startActivity(Intent(Intent.ACTION_VIEW , Uri.parse(news[position].url)))
+            it.context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(news[position].url)))
         }
     }
 
@@ -54,7 +54,8 @@ class NewsRecyclerAdapter : RecyclerView.Adapter<NewsRecyclerAdapter.NewsRecycle
         return news.size
     }
 
-    fun setData(list : List<Articles>) {
+    fun setData(list: List<Articles>) {
+        news.clear()
         news.addAll(list)
         notifyDataSetChanged()
     }

@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.indialone.mvvmandrxjava.network.Entity.Articles
 import com.indialone.mvvmandrxjava.network.NewsApiService
+import com.indialone.mvvmandrxjava.repository.NewsRepository
 import io.reactivex.Observable
 import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -13,14 +14,16 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
-class NewsViewModel : ViewModel() {
+class NewsViewModel(
+    private val newsRepository: NewsRepository
+) : ViewModel() {
 
-    private val newsApiService = NewsApiService()
+//    private val newsApiService = NewsApiService()
     private val compositeDisposable = CompositeDisposable()
 
     val getAllNews = MutableLiveData<List<Articles>>()
 
-    val observable = newsApiService.getNews()
+    val observable = newsRepository.getNews()
         .map { result ->
             Observable.fromIterable(result.articles)
         }

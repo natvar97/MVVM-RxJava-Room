@@ -1,5 +1,6 @@
 package com.indialone.mvvmandrxjava.repository
 
+import com.indialone.mvvmandrxjava.network.NewsApiService
 import com.indialone.mvvmandrxjava.roomdatabase.User
 import com.indialone.mvvmandrxjava.roomdatabase.UserDao
 import io.reactivex.Completable

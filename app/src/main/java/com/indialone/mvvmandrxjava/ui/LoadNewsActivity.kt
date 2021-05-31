@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.indialone.mvvmandrxjava.databinding.ActivityLoadNewsBinding
+import com.indialone.mvvmandrxjava.utils.MyApplication
 import com.indialone.mvvmandrxjava.viewmodel.NewsViewModel
+import com.indialone.mvvmandrxjava.viewmodel.ViewModelFactory
 
 class LoadNewsActivity : AppCompatActivity() {
 
@@ -19,7 +21,12 @@ class LoadNewsActivity : AppCompatActivity() {
         mBinding = ActivityLoadNewsBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
 
-        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+        newsViewModel = ViewModelProvider(
+            this, ViewModelFactory(
+                (application as MyApplication).repository,
+                (application as MyApplication).newsRepository
+            )
+        ).get(NewsViewModel::class.java)
 
         newsRecyclerAdapter = NewsRecyclerAdapter()
         mBinding.newsRecyclerView.layoutManager = LinearLayoutManager(this)

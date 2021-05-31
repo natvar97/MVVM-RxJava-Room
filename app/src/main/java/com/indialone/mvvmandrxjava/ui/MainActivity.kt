@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         userViewModel = ViewModelProvider(
             this,
-            ViewModelFactory((application as MyApplication).repository)
+            ViewModelFactory((application as MyApplication).repository , (application as MyApplication).newsRepository)
         ).get(UserViewModel::class.java)
 
         mBinding.recyclerView.layoutManager = LinearLayoutManager(this)

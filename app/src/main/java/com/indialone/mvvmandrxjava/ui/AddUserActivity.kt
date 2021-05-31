@@ -34,7 +34,13 @@ class AddUserActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(mBinding.root)
 
         userViewModel =
-            ViewModelProvider(this, ViewModelFactory((application as MyApplication).repository))
+            ViewModelProvider(
+                this,
+                ViewModelFactory(
+                    (application as MyApplication).repository,
+                    (application as MyApplication).newsRepository
+                )
+            )
                 .get(UserViewModel::class.java)
 
         if (intent.hasExtra(Constants.USER_DATA)) {

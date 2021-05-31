@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         )
 
         mBinding.addUserFab.setOnClickListener(this)
+        mBinding.ivNews.setOnClickListener(this)
     }
 
     /*
@@ -67,6 +68,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             )
         }
     */
+
+
     override fun onStop() {
         super.onStop()
         compositeDisposable.clear()
@@ -77,6 +80,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             when (v.id) {
                 R.id.addUserFab -> {
                     startActivity(Intent(this, AddUserActivity::class.java))
+                }
+                R.id.iv_news -> {
+                    startActivity(Intent(this, LoadNewsActivity::class.java))
                 }
             }
         }

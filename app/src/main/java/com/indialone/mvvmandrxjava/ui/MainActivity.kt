@@ -70,11 +70,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     */
 
 
-    override fun onStop() {
-        super.onStop()
-        compositeDisposable.clear()
-    }
-
     override fun onClick(v: View?) {
         v?.id?.let {
             when (v.id) {

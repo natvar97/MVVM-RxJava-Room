@@ -13,13 +13,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
 class NewsViewModel(
     private val newsRepository: NewsRepository
 ) : ViewModel() {
 
 //    private val newsApiService = NewsApiService()
-    private val compositeDisposable = CompositeDisposable()
+//    private val compositeDisposable = CompositeDisposable()
 
     val getAllNews = MutableLiveData<List<Articles>>()
 

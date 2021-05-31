@@ -10,8 +10,6 @@ class UserViewModel(
     private val repository: UserRepository
 ) : ViewModel() {
 
-    private val users = MutableLiveData<List<User>>()
-
     fun insert(user: User) = repository.insert(user)
 
 
